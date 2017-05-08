@@ -4,6 +4,7 @@ var game = new Phaser.Game(1280, 720, Phaser.CANVAS, 'Question4'
 
 function preload() {
     game.load.image('tardis', 'assets/Tardis.png', 102, 125);
+    game.load.image('planet', 'assets/planet.png', 102, 125);
     game.load.spritesheet('Button', 'assets/button.png', 200, 50);
     game.load.spritesheet('Button1', 'assets/button1.png', 200, 50);
     game.load.spritesheet('Button2', 'assets/button2.png', 200, 50);
@@ -47,7 +48,9 @@ var score;
 
 function create() {
 	game.add.sprite(0, 0, 'space');
+    var planet = game.add.sprite(1000, 100, 'planet');
     game.physics.startSystem(Phaser.Physics.ARCADE);
+    planet.scale.setTo(.25, .25);
 
     game.stage.backgroundColor = '#4b0049';
 
@@ -79,7 +82,6 @@ function create() {
 
 
     score = game.add.text(0, 665, "Score: " + count, { font: '54px Arial', fill: '#ffffff' });
-
 
 }
 
@@ -164,9 +166,14 @@ function actionTEN() {
 function Update() {
     player2.x = xPosition2;
     player2.y = yPosition2;
+
+    if(player2.x == 310) {
+    		var text2 = game.add.text(game.world.centerX - 285, 100, 'You win!', { font: '32px Arial', fill: '#ffffff' });
+    }
 }
 
 function render() {
     game.debug.spriteInfo(player, 700, 10);
 
 }
+

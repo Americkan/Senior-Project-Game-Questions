@@ -45,22 +45,11 @@ var main = {
 		game.physics.enable(dalek, Phaser.Physics.ARCADE);
 		cursor = game.input.keyboard.createCursorKeys();
 
-		bullets = game.add.group();
-		bullets.enableBody = true;
-		bullets.physicsBodyType = Phaser.Physics.ARCADE;
-		bullets.createMultiple(1, 'bullet');
-		bullets.setAll('anchor.x', 0.5);
-		bullets.setAll('anchor.y', 1);
-		bullets.setAll('outOfBoundsKill', true);
-		bullets.setAll('checkWorldBounds', true);
-
 		text1 = game.add.text(game.world.centerX - 195, 0, 'Exterminate a doctor to make the following logic true.', { font: '20px Arial', fill: '#ffffff' });
     	text2 = game.add.text(game.world.centerX - 195, 25, 'if ( ___ == 10) {', { font: '20px Arial', fill: '#ffffff' });
     	text3 = game.add.text(game.world.centerX - 195, 50, '//This statement is true.', { font: '20px Arial', fill: '#ffffff' });
     	text4 = game.add.text(game.world.centerX - 195, 75, '}', { font: '20px Arial', fill: '#ffffff' });
 
-
-		fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 		doctor9 = game.add.group();
 		doctor9.enableBody = true;
@@ -78,6 +67,7 @@ var main = {
 		doctor12.enableBody = true;
 		doctor12.physicsBodyType = Phaser.Physics.ARCADE; 
 
+
 		createDoctorNine();
 		createDoctorTen();
 		createDoctorEleven();
@@ -87,6 +77,17 @@ var main = {
 		winText = game.add.text(game.world.centerX, 200, 'First Try!', {font: '32px Arial', fill: '#fff'});
 		winText.visible = false;
 
+
+
+		bullets = game.add.group();
+		bullets.enableBody = true;
+		bullets.physicsBodyType = Phaser.Physics.ARCADE;
+		bullets.createMultiple(1, 'bullet');
+		bullets.setAll('anchor.x', 0.5);
+		bullets.setAll('anchor.y', 1);
+		bullets.setAll('outOfBoundsKill', true);
+		bullets.setAll('checkWorldBounds', true);		
+		fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	},
 
 	update:function() {
@@ -151,7 +152,7 @@ function createDoctorNine() {
 	doctor9.x = 100;
 	doctor9.y = 50; 
 
-	var tween = game.add.tween(doctor9).to({x:200}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+	var tween = game.add.tween(doctor9).to({x:200}, 800, Phaser.Easing.Linear.None, true, 0, 800, true);
 
 	tween.onLoop.add(descend, this);
 }
@@ -171,7 +172,7 @@ function createDoctorTen() {
 	doctor10.x = 100;
 	doctor10.y = 50; 
 
-	var tween = game.add.tween(doctor10).to({x:200}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+	var tween = game.add.tween(doctor10).to({x:200}, 700, Phaser.Easing.Linear.None, true, 0, 700, true);
 
 	tween.onLoop.add(descend2, this);
 }
@@ -191,7 +192,7 @@ function createDoctorEleven() {
 	doctor11.x = 100;
 	doctor11.y = 50; 
 
-	var tween = game.add.tween(doctor11).to({x:200}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+	var tween = game.add.tween(doctor11).to({x:200}, 600, Phaser.Easing.Linear.None, true, 0, 600, true);
 
 	tween.onLoop.add(descend3, this);
 }
@@ -211,7 +212,7 @@ function createDoctorTweleve() {
 	doctor12.x = 100;
 	doctor12.y = 50; 
 
-	var tween = game.add.tween(doctor12).to({x:200}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+	var tween = game.add.tween(doctor12).to({x:200}, 500, Phaser.Easing.Linear.None, true, 0, 500, true);
 
 	tween.onLoop.add(descend4, this);
 }
