@@ -1,15 +1,21 @@
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'Question 6', { preload: preload, create: create, update: update, render: render });
 
+//***************************************************************************************/
+//*    Title: Starstruck
+//*    Author: Photonstorm
+//*    Code version: 2.7.8
+//*    Availability: http://phaser.io/examples/v2/games/starstruck
+//*
+//***************************************************************************************/
+//This example was used in the means of learning how to work with animations, implementing my own and seeing how it works using spritesheets I chose.   
+
 function preload() {
 
     game.load.tilemap('level1', 'assets/worldmap.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('tiles-1', 'assets/tilemap.png');
     game.load.spritesheet('dude', 'assets/tennant.png', 32, 48, 15);
-    game.load.spritesheet('droid', 'assets/droid.png', 32, 32);
-    game.load.image('starSmall', 'assets/star.png');
-    game.load.image('starBig', 'assets/star2.png');
-    game.load.image('background', 'assets/background2.png');
+    //game.load.image('background', 'assets/background2.png');
 
 }
 
@@ -19,7 +25,6 @@ var layer;
 var layer2;
 var player;
 var facing = 'left';
-var jumpTimer = 0;
 var cursors;
 var jumpButton;
 var bg;
@@ -30,8 +35,8 @@ function create() {
 
     game.stage.backgroundColor = '#000000';
 
-    bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-    bg.fixedToCamera = true;
+    //bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+    //bg.fixedToCamera = true;
 
     map = game.add.tilemap('level1');
 
@@ -41,14 +46,8 @@ function create() {
     layer2 = map.createLayer('Tile Layer 2');
 
     map.setCollisionBetween(0, 10000, true, layer2);
-     //map.setCollisionByExclusion([ 72, 144, 145, 160, 161, 130, 131, 146, 147, 48, 49, 50, 51 ]);
-
-    //  Un-comment this on to see the collision tiles
-    //layer.debug = true;
 
     layer.resizeWorld();
-
-    //game.physics.arcade.gravity.y = 350;
 
     player = game.add.sprite(32, 32, 'dude');
     game.physics.enable(player, Phaser.Physics.ARCADE);
@@ -133,20 +132,12 @@ function update() {
         }
         facing = 'idle';
     }
-    }
-    
-    if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer)
-    {
-        player.body.velocity.y = -250;
-        jumpTimer = game.time.now + 750;
-    }
+
+}
 
 }
 
 function render () {
 
-    // game.debug.text(game.time.physicsElapsed, 32, 32);
-    // game.debug.body(player);
-    // game.debug.bodyInfo(player, 16, 24);
 
 }

@@ -44,6 +44,16 @@ function create() {
 
 }
 
+//***************************************************************************************/
+//*    Title: Button Destroy
+//*    Author: Photonstorm
+//*    Code version: 2.7.8
+//*    Availability: http://phaser.io/examples/v2/input/button-destroy
+//*
+//***************************************************************************************/
+//The code to destroy/remove the buttons was taken from the following example.
+
+
 function firstResponse() {
 
     button1.pendingDestroy = true;
@@ -104,6 +114,7 @@ function fourthResponse() {
     game.input.onDown.addOnce(removeText, this);
 
 }
+
 
 function removeText() {
 

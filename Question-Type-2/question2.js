@@ -37,6 +37,15 @@ function create() {
     button4 = game.add.button(game.world.centerX - 295, 460, 'Button4', thirdResponse, this);
     button5 = game.add.button(game.world.centerX + 95, 460, 'Button5', fourthResponse, this);
 
+//***************************************************************************************/
+//*    Title: Input Child Priority
+//*    Author: Photonstorm
+//*    Code version: 2.7.8
+//*    Availability: http://phaser.io/examples/v2/input/input-child-priority
+//*
+//***************************************************************************************/
+//Parts of the code above were used and modified below. 
+
     popup = game.add.sprite(game.world.centerX, game.world.centerY - 100, 'background'); //Allows you to drag 
     popup.alpha = 0.8;
     popup.anchor.set(0.5);
@@ -83,6 +92,15 @@ function render() {
     game.debug.text("Click to open question and the back arrow to close window", 32, 32);
 
 }
+
+//***************************************************************************************/
+//*    Title: Button Destroy
+//*    Author: Photonstorm
+//*    Code version: 2.7.8
+//*    Availability: http://phaser.io/examples/v2/input/button-destroy
+//*
+//***************************************************************************************/
+//The code to destroy/remove the buttons was taken from the following example.
 
 function firstResponse() {
 

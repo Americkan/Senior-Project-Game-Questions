@@ -57,39 +57,26 @@ function create() {
 
 function actionONE() {
     player.x += 10;
-
-    //text.anchor.set(0.5);
-
 }
 
 function actionTWO() {
     player.x -= 10;
-   // text.anchor.set(0.5);
 }
 
 function actionTHREE() {
     player.y -= 10;
-    //text.anchor.set(0.5);
-
 }
 
 function actionFOUR() {
     player.y += 10;
-   // text.anchor.set(0.5);
-
 }
 
 function actionFIVE() {
     player.angle += 15;
-   //text.anchor.set(0.5);
-
- 
 }
 
 function actionSIX() {
     player.angle -= 15;
-   // text.anchor.set(0.5);
 
- 
 }
 

@@ -1,5 +1,14 @@
 var game = new Phaser.Game(1200,800,Phaser.CANVAS, "Question 5");
 
+//***************************************************************************************/
+//*    Title: Invaders
+//*    Author: Photonstorm
+//*    Code version: 2.7.8
+//*    Availability: http://phaser.io/examples/v2/games/invaders
+//*
+//***************************************************************************************/
+//Some parts of the example above were taken and used in this project such as the tween aspects.  
+
 var spacefield;
 var backgroundv;
 var cursor;

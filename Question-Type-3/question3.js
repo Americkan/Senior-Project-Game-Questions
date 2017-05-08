@@ -1,5 +1,14 @@
 var game = new Phaser.Game(1280, 1024, Phaser.AUTO, 'Question 3', { preload: preload, create: create, update: update });
 
+//***************************************************************************************/
+//*    Title: Sprite Vs Group
+//*    Author: Photonstorm
+//*    Code version: 2.7.8
+//*    Availability: http://phaser.io/examples/v2/arcade-physics/sprite-vs-group
+//*
+//***************************************************************************************/
+//The following example was taken, used and modified as needed. 
+
 function preload() {
 
     game.load.image('tardis', 'assets/tardis.png', 102, 125);
@@ -17,6 +26,7 @@ function preload() {
 var player;
 var group;
 var keys;
+var c;
 
 var count = 0;
 
@@ -47,7 +57,7 @@ function create() {
     var o = group.create(game.rnd.between(400, 800), game.rnd.between(400, 500), 'lettersO', game.rnd.between(250, 500));
     o.body.mass = -100;
 
-    var c = group.create(game.rnd.between(400, 800), game.rnd.between(0, 500), 'lettersC', game.rnd.between(250, 500));
+    c = group.create(game.rnd.between(400, 800), game.rnd.between(0, 500), 'lettersC', game.rnd.between(250, 500));
     c.body.mass = -100;
 
     var t = group.create(game.rnd.between(400, 800), game.rnd.between(0, 500), 'lettersT', game.rnd.between(250, 500));
@@ -70,10 +80,9 @@ function update() {
 
     if (game.physics.arcade.collide(player, group, collisionHandler, processHandler, this))
     {
-        console.log('boom');
+        console.log('Collison');
     }
 
-    // game.physics.arcade.overlap(sprite, group, collisionHandler, null, this);
 
     player.body.velocity.x = 0;
     player.body.velocity.y = 0;
@@ -106,9 +115,11 @@ function processHandler (player, letter) {
 
 function collisionHandler (player, letter) {
 
-    if (letter.frame == 7)
+    if (c.frame == player.frame)
     {
         letter.kill();
     }
 
+    count -= 100;
+    score.text = "Score: " + count;
 }
